@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing Detector",
+  "version": "2.0",
+  "description": "A tiered phishing detection system for Gmail.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+  "identity"
+  ],
+   "host_permissions": [
+    "https://www.googleapis.com/*"
+  ],
+  
+  "oauth2": {
+    "client_id": "405431338371-dhmmhp403k3spashqjv91j0foijrgnns.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.readonly"
+    ]
+  }
+}
